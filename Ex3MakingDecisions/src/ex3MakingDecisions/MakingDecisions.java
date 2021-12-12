@@ -28,7 +28,7 @@ public class MakingDecisions {
 		
 		double hoursPrice = 0;
 		
-		isDisabled(myInput, charges, isDisabled);
+		isDisabled(myInput, isDisabled);
 		
 		if (isDisabled.get("isDisabled") == true) {
 			System.out.println("Parking for you is free");
@@ -47,7 +47,7 @@ public class MakingDecisions {
 		}
 	}
 	
-	public static boolean isDisabled(Scanner myInput, HashMap<String, Double> charges, HashMap<String, Boolean> isDisabled) {
+	public static boolean isDisabled(Scanner myInput, HashMap<String, Boolean> isDisabled) {
 		System.out.println("Are you disabled?");
 		String response = myInput.nextLine();
 		
@@ -63,7 +63,7 @@ public class MakingDecisions {
 		} else { 
 			// Here I am handling if someone write different answer to the question
 			System.out.println("Please, Only Answer \"yes\" or \"no\"");
-			isDisabled(myInput, charges, isDisabled);
+			isDisabled(myInput, isDisabled);
 		}
 		
 		return isDisabled.get("isDisabled");
