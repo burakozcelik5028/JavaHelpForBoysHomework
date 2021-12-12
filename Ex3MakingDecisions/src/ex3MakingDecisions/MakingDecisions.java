@@ -1,22 +1,11 @@
 package ex3MakingDecisions;
 
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 public class MakingDecisions {
-
-	
-	//Here I am defining charges class that I will use later in this class
-	public static class Charges{
-		public double calculatedPriceForHours;
-		public boolean isDisabled;
-		public double totalCharge;
-		public double oneHourPrice;
-		public double twoToFourHoursPrice;
-		public double fiveToSixHoursPrice;
-		public double sevenToEightHoursPrice;
-	}
 
 	//My Main Class
 	public static void main(String[] args) {
@@ -26,30 +15,31 @@ public class MakingDecisions {
 	public static void runForMainClass() {
 		
 		Scanner myInput = new Scanner(System.in);
+		HashMap<String, Double> charges = new HashMap<String, Double>();
+		charges.put("calculatedPriceForHours", (double) 0);
+		charges.put("totalCharge", (double) 0);
+		charges.put("oneHourPrice", (double) 3);
+		charges.put("twoToFourHoursPrice", (double) 4);
+		charges.put("fiveToSixHoursPrice", 4.5);
+		charges.put("sevenToEightHoursPrice", 5.5);
 		
-		Charges charges = new Charges();
-		charges.calculatedPriceForHours = 0;
-		charges.totalCharge = 0;
-		charges.isDisabled = false;
-		charges.oneHourPrice = 3;
-		charges.twoToFourHoursPrice = 4;
-		charges.fiveToSixHoursPrice = 4.5;
-		charges.sevenToEightHoursPrice = 5.5;
+		HashMap<String, Boolean> isDisabled = new HashMap<String, Boolean>();
+		isDisabled.put("isDisabled", false);
 		
 		double hoursPrice = 0;
 		
-		isDisabled(myInput, charges);
+		isDisabled(myInput, charges, isDisabled);
 		
-		if (charges.isDisabled == true) {
+		if (isDisabled.get("isDisabled") == true) {
 			System.out.println("Parking for you is free");
-		} else if(charges.isDisabled == false) {
+		} else if(isDisabled.get("isDisabled") == false) {
 			hoursPrice = calculateHoursPrice(myInput, charges);
 			calculateDiscount(myInput, hoursPrice, charges);
 			
-			if(charges.totalCharge <= 0) {
+			if(charges.get("totalCharge") <= 0) {
 				System.out.println("Parking for you is free");
 			} else {
-				System.out.println("The parking charge for you is "+ charges.totalCharge + " pounds.");
+				System.out.println("The parking charge for you is "+ charges.get("totalCharge") + " pounds.");
 			}
 			
 		} else {
@@ -57,7 +47,7 @@ public class MakingDecisions {
 		}
 	}
 	
-	public static boolean isDisabled(Scanner myInput, Charges charges) {
+	public static boolean isDisabled(Scanner myInput, HashMap<String, Double> charges, HashMap<String, Boolean> isDisabled) {
 		System.out.println("Are you disabled?");
 		String response = myInput.nextLine();
 		
@@ -66,20 +56,20 @@ public class MakingDecisions {
 		String ignoredSpacesResponse = response.toLowerCase().replaceAll("\\s", "");
 		
 		if(ignoredSpacesResponse.equals("yes")) {
-			charges.isDisabled = true;
+			isDisabled.put("isDisabled", true);
 			return true;
 		} else if(ignoredSpacesResponse.equals("no")) {
 			return false;
 		} else { 
 			// Here I am handling if someone write different answer to the question
 			System.out.println("Please, Only Answer \"yes\" or \"no\"");
-			isDisabled(myInput, charges);
+			isDisabled(myInput, charges, isDisabled);
 		}
 		
-		return charges.isDisabled;
+		return isDisabled.get("isDisabled");
 	}
 
-	public static double calculateHoursPrice(Scanner myInput, Charges charges) {
+	public static double calculateHoursPrice(Scanner myInput, HashMap<String, Double> charges) {
 		int response = 0;
 		boolean flag = false;
 		
@@ -96,17 +86,17 @@ public class MakingDecisions {
 		}
 		
 		if (response == 1) {
-			charges.calculatedPriceForHours = charges.oneHourPrice;
-			return charges.calculatedPriceForHours;
+			charges.put("calculatedPriceForHours", charges.get("oneHourPrice"));
+			return charges.get("calculatedPriceForHours");
 		} else if(2 <= response && response <= 4) {
-			charges.calculatedPriceForHours = charges.twoToFourHoursPrice;
-			return charges.calculatedPriceForHours;
+			charges.put("calculatedPriceForHours", charges.get("twoToFourHoursPrice"));
+			return charges.get("calculatedPriceForHours");
 		} else if(5 <= response && response <= 6) {
-			charges.calculatedPriceForHours = charges.fiveToSixHoursPrice;
-			return charges.calculatedPriceForHours;
+			charges.put("calculatedPriceForHours", charges.get("fiveToSixHoursPrice"));
+			return charges.get("calculatedPriceForHours");
 		} else if(7 <= response && response <= 8) {
-			charges.calculatedPriceForHours = charges.sevenToEightHoursPrice;
-			return charges.calculatedPriceForHours;
+			charges.put("calculatedPriceForHours", charges.get("sevenToEightHoursPrice"));
+			return charges.get("calculatedPriceForHours");
 		} else {
 			if(flag == false) {
 				System.out.println("Please enter an integer between 1 and 8. "
@@ -119,10 +109,10 @@ public class MakingDecisions {
 			calculateHoursPrice(myInput, charges);			
 		}
 		
-		return charges.calculatedPriceForHours;
+		return charges.get("calculatedPriceForHours");
 	}
 	
-	public static double calculateDiscount(Scanner myInput, double hoursPrice, Charges charges) {
+	public static double calculateDiscount(Scanner myInput, double hoursPrice, HashMap<String, Double> charges) {
 		System.out.println("Do you have an \"I live locally badge\"?");
 		double response = 0;
 		String responseForLocal = myInput.next();
@@ -132,12 +122,12 @@ public class MakingDecisions {
 		String ignoredSpacesResponseForLocal = responseForLocal.toLowerCase().replaceAll("\\s", "");
 		
 		if(ignoredSpacesResponseForLocal.equals("yes")) {
-			charges.totalCharge = calculateDiscountForOAP(myInput, hoursPrice-1, charges);
-			response = charges.totalCharge;
+			charges.put("totalCharge", calculateDiscountForOAP(myInput, hoursPrice-1, charges));
+			response = charges.get("totalCharge");
 			return response;
 		} else if(ignoredSpacesResponseForLocal.equals("no")) {
-			charges.totalCharge = calculateDiscountForOAP(myInput, hoursPrice, charges);
-			response = charges.totalCharge;
+			charges.put("totalCharge", calculateDiscountForOAP(myInput, hoursPrice, charges));
+			response = charges.get("totalCharge");
 			return response;
 		} else {
 			// Here I am handling if someone write different answer to the question
@@ -145,10 +135,10 @@ public class MakingDecisions {
 			calculateDiscount(myInput, hoursPrice, charges);
 		}
 		
-		return charges.totalCharge;
+		return charges.get("totalCharge");
 	}
 	
-	public static double calculateDiscountForOAP(Scanner myInput, double hoursPrice, Charges charges) {
+	public static double calculateDiscountForOAP(Scanner myInput, double hoursPrice, HashMap<String, Double> charges) {
 		System.out.println("Are you an OAP?");
 		String responseForOAL = myInput.next();
 		
@@ -157,17 +147,17 @@ public class MakingDecisions {
 		String ignoredSpacesResponseresponseForOAL = responseForOAL.toLowerCase().replaceAll("\\s", "");
 		
 		if(ignoredSpacesResponseresponseForOAL.equals("yes")) {
-			charges.totalCharge = hoursPrice - 2;
-			return charges.totalCharge;
+			charges.put("totalCharge", hoursPrice - 2);
+			return charges.get("totalCharge");
 		} else if(ignoredSpacesResponseresponseForOAL.equals("no")) {
-			charges.totalCharge = hoursPrice;
-			return charges.totalCharge;
+			charges.put("totalCharge", hoursPrice);
+			return charges.get("totalCharge");
 		} else {
 			// Here I am handling if someone write different answer to the question
 			System.out.println("Please, Only Answer \"yes\" or \"no\"");
 			calculateDiscountForOAP(myInput, hoursPrice, charges);
 		}
 		
-		return charges.totalCharge;
+		return charges.get("totalCharge");
 	}
 }
