@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MakingDecisions {
 
 	
-	//Here I am defining charges that I will use later in this class
+	//Here I am defining charges class that I will use later in this class
 	public static class Charges{
 		public double calculatedPriceForHours;
 		public boolean isDisabled;
