@@ -6,44 +6,58 @@ import java.util.Scanner;
 
 public class MakingDecisions {
 
-	//Here I am defining global charges
+	
+	//Here I am defining charges that I will use later in this class
 	public static class Charges{
-		public static double calculatedPriceForHours;
-		public static boolean isDisabled = false;
-		public static double totalCharge;
-		public static double oneHourPrice = 3;
-		public static double twoToFourHoursPrice = 4;
-		public static double fiveToSixHoursPrice = 4.5;
-		public static double sevenToEightHoursPrice = 5.5;
+		public double calculatedPriceForHours;
+		public boolean isDisabled;
+		public double totalCharge;
+		public double oneHourPrice;
+		public double twoToFourHoursPrice;
+		public double fiveToSixHoursPrice;
+		public double sevenToEightHoursPrice;
 	}
 
 	//My Main Class
 	public static void main(String[] args) {
+		runForMainClass();
+	}
+	
+	public static void runForMainClass() {
+		
 		Scanner myInput = new Scanner(System.in);
+		
+		Charges charges = new Charges();
+		charges.calculatedPriceForHours = 0;
+		charges.totalCharge = 0;
+		charges.isDisabled = false;
+		charges.oneHourPrice = 3;
+		charges.twoToFourHoursPrice = 4;
+		charges.fiveToSixHoursPrice = 4.5;
+		charges.sevenToEightHoursPrice = 5.5;
+		
 		double hoursPrice = 0;
 		
-		isDisabled(myInput);
+		isDisabled(myInput, charges);
 		
-		if (Charges.isDisabled == true) {
+		if (charges.isDisabled == true) {
 			System.out.println("Parking for you is free");
-		} else if(Charges.isDisabled == false) {
-			hoursPrice = calculateHoursPrice(myInput);
-			calculateDiscount(myInput, hoursPrice);
+		} else if(charges.isDisabled == false) {
+			hoursPrice = calculateHoursPrice(myInput, charges);
+			calculateDiscount(myInput, hoursPrice, charges);
 			
-			if(Charges.totalCharge <= 0) {
+			if(charges.totalCharge <= 0) {
 				System.out.println("Parking for you is free");
 			} else {
-				System.out.println("The parking charge for you is "+ Charges.totalCharge + " pounds.");
+				System.out.println("The parking charge for you is "+ charges.totalCharge + " pounds.");
 			}
 			
 		} else {
 			System.out.println("Incorrect Result! Please Try Again!");
 		}
-		
 	}
 	
-	
-	public static boolean isDisabled(Scanner myInput) {
+	public static boolean isDisabled(Scanner myInput, Charges charges) {
 		System.out.println("Are you disabled?");
 		String response = myInput.nextLine();
 		
@@ -52,20 +66,20 @@ public class MakingDecisions {
 		String ignoredSpacesResponse = response.toLowerCase().replaceAll("\\s", "");
 		
 		if(ignoredSpacesResponse.equals("yes")) {
-			Charges.isDisabled = true;
+			charges.isDisabled = true;
 			return true;
 		} else if(ignoredSpacesResponse.equals("no")) {
 			return false;
 		} else { 
 			// Here I am handling if someone write different answer to the question
 			System.out.println("Please, Only Answer \"yes\" or \"no\"");
-			isDisabled(myInput);
+			isDisabled(myInput, charges);
 		}
 		
-		return Charges.isDisabled;
+		return charges.isDisabled;
 	}
 
-	public static double calculateHoursPrice(Scanner myInput) {
+	public static double calculateHoursPrice(Scanner myInput, Charges charges) {
 		int response = 0;
 		boolean flag = false;
 		
@@ -82,17 +96,17 @@ public class MakingDecisions {
 		}
 		
 		if (response == 1) {
-			Charges.calculatedPriceForHours = Charges.oneHourPrice;
-			return Charges.calculatedPriceForHours;
+			charges.calculatedPriceForHours = charges.oneHourPrice;
+			return charges.calculatedPriceForHours;
 		} else if(2 <= response && response <= 4) {
-			Charges.calculatedPriceForHours = Charges.twoToFourHoursPrice;
-			return Charges.calculatedPriceForHours;
+			charges.calculatedPriceForHours = charges.twoToFourHoursPrice;
+			return charges.calculatedPriceForHours;
 		} else if(5 <= response && response <= 6) {
-			Charges.calculatedPriceForHours = Charges.fiveToSixHoursPrice;
-			return Charges.calculatedPriceForHours;
+			charges.calculatedPriceForHours = charges.fiveToSixHoursPrice;
+			return charges.calculatedPriceForHours;
 		} else if(7 <= response && response <= 8) {
-			Charges.calculatedPriceForHours = Charges.sevenToEightHoursPrice;
-			return Charges.calculatedPriceForHours;
+			charges.calculatedPriceForHours = charges.sevenToEightHoursPrice;
+			return charges.calculatedPriceForHours;
 		} else {
 			if(flag == false) {
 				System.out.println("Please enter an integer between 1 and 8. "
@@ -102,13 +116,13 @@ public class MakingDecisions {
 				flag = false;
 			}
 			
-			calculateHoursPrice(myInput);			
+			calculateHoursPrice(myInput, charges);			
 		}
 		
-		return Charges.calculatedPriceForHours;
+		return charges.calculatedPriceForHours;
 	}
 	
-	public static double calculateDiscount(Scanner myInput, double hoursPrice) {
+	public static double calculateDiscount(Scanner myInput, double hoursPrice, Charges charges) {
 		System.out.println("Do you have an \"I live locally badge\"?");
 		double response = 0;
 		String responseForLocal = myInput.next();
@@ -118,23 +132,23 @@ public class MakingDecisions {
 		String ignoredSpacesResponseForLocal = responseForLocal.toLowerCase().replaceAll("\\s", "");
 		
 		if(ignoredSpacesResponseForLocal.equals("yes")) {
-			Charges.totalCharge = calculateDiscountForOAP(myInput, hoursPrice-1);
-			response = Charges.totalCharge;
+			charges.totalCharge = calculateDiscountForOAP(myInput, hoursPrice-1, charges);
+			response = charges.totalCharge;
 			return response;
 		} else if(ignoredSpacesResponseForLocal.equals("no")) {
-			Charges.totalCharge = calculateDiscountForOAP(myInput, hoursPrice);
-			response = Charges.totalCharge;
+			charges.totalCharge = calculateDiscountForOAP(myInput, hoursPrice, charges);
+			response = charges.totalCharge;
 			return response;
 		} else {
 			// Here I am handling if someone write different answer to the question
 			System.out.println("Please, Only Answer \"yes\" or \"no\"");
-			calculateDiscount(myInput, hoursPrice);
+			calculateDiscount(myInput, hoursPrice, charges);
 		}
 		
-		return Charges.totalCharge;
+		return charges.totalCharge;
 	}
 	
-	public static double calculateDiscountForOAP(Scanner myInput, double hoursPrice) {
+	public static double calculateDiscountForOAP(Scanner myInput, double hoursPrice, Charges charges) {
 		System.out.println("Are you an OAP?");
 		String responseForOAL = myInput.next();
 		
@@ -143,17 +157,17 @@ public class MakingDecisions {
 		String ignoredSpacesResponseresponseForOAL = responseForOAL.toLowerCase().replaceAll("\\s", "");
 		
 		if(ignoredSpacesResponseresponseForOAL.equals("yes")) {
-			Charges.totalCharge = hoursPrice - 2;
-			return Charges.totalCharge;
+			charges.totalCharge = hoursPrice - 2;
+			return charges.totalCharge;
 		} else if(ignoredSpacesResponseresponseForOAL.equals("no")) {
-			Charges.totalCharge = hoursPrice;
-			return Charges.totalCharge;
+			charges.totalCharge = hoursPrice;
+			return charges.totalCharge;
 		} else {
 			// Here I am handling if someone write different answer to the question
 			System.out.println("Please, Only Answer \"yes\" or \"no\"");
-			calculateDiscountForOAP(myInput, hoursPrice);
+			calculateDiscountForOAP(myInput, hoursPrice, charges);
 		}
 		
-		return Charges.totalCharge;
+		return charges.totalCharge;
 	}
 }
