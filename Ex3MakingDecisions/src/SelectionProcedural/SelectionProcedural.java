@@ -122,7 +122,7 @@ public class SelectionProcedural {
 
 			}
 			
-			candidate_list[vote_number].voteCount = candidate_list[vote_number].voteCount + 1;
+			candidate_list[vote_number-1].voteCount = candidate_list[vote_number-1].voteCount + 1;
 		}
 		
 		int max = candidate_list[0].voteCount;
