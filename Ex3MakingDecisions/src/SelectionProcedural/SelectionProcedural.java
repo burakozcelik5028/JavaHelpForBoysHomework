@@ -20,49 +20,49 @@ public class SelectionProcedural {
 		candidate1.voteCount = 0;
 		
 		Candidates candidate2 = new Candidates();
-		candidate1.name = "Brian";
-		candidate1.number = 2;
-		candidate1.voteCount = 0;
+		candidate2.name = "Brian";
+		candidate2.number = 2;
+		candidate2.voteCount = 0;
 		
 		Candidates candidate3 = new Candidates();
-		candidate1.name = "Cindy";
-		candidate1.number = 3;
-		candidate1.voteCount = 0;
+		candidate3.name = "Cindy";
+		candidate3.number = 3;
+		candidate3.voteCount = 0;
 		
 		Candidates candidate4 = new Candidates();
-		candidate1.name = "Danial";
-		candidate1.number = 4;
-		candidate1.voteCount = 0;
+		candidate4.name = "Danial";
+		candidate4.number = 4;
+		candidate4.voteCount = 0;
 		
 		Candidates candidate5 = new Candidates();
-		candidate1.name = "Eliza";
-		candidate1.number = 5;
-		candidate1.voteCount = 0;
+		candidate5.name = "Eliza";
+		candidate5.number = 5;
+		candidate5.voteCount = 0;
 		
 		Candidates candidate6 = new Candidates();
-		candidate1.name = "Frank";
-		candidate1.number = 6;
-		candidate1.voteCount = 0;
+		candidate6.name = "Frank";
+		candidate6.number = 6;
+		candidate6.voteCount = 0;
 		
 		Candidates candidate7 = new Candidates();
-		candidate1.name = "Gina";
-		candidate1.number = 7;
-		candidate1.voteCount = 0;
+		candidate7.name = "Gina";
+		candidate7.number = 7;
+		candidate7.voteCount = 0;
 		
 		Candidates candidate8 = new Candidates();
-		candidate1.name = "Hansel";
-		candidate1.number = 8;
-		candidate1.voteCount = 0;
+		candidate8.name = "Hansel";
+		candidate8.number = 8;
+		candidate8.voteCount = 0;
 		
 		Candidates candidate9 = new Candidates();
-		candidate1.name = "Irina";
-		candidate1.number = 9;
-		candidate1.voteCount = 0;
+		candidate9.name = "Irina";
+		candidate9.number = 9;
+		candidate9.voteCount = 0;
 		
 		Candidates candidate10 = new Candidates();
-		candidate1.name = "Jo";
-		candidate1.number = 10;
-		candidate1.voteCount = 0;
+		candidate10.name = "Jo";
+		candidate10.number = 10;
+		candidate10.voteCount = 0;
 		
 		Candidates[] candidates = new Candidates[10];
 		candidates[0] = candidate1;
