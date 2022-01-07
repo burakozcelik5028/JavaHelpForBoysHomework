@@ -103,7 +103,7 @@ public class SelectionProcedural {
 		for(int i = 0; i < candidate_list.length ; i++) {
 			
 			System.out.println(candidate_list[i].name + " who do you vote for? ");
-			
+			flag = true;
 			while(flag) {
 				
 				try {
@@ -134,7 +134,7 @@ public class SelectionProcedural {
 		}
 		
 		
-		Candidates winners[] = new Candidates[0];
+		Candidates winners[] = new Candidates[10];
 		
 		for(int i = 0; i < candidate_list.length; i++) {
 			if (candidate_list[i].voteCount == max) {
