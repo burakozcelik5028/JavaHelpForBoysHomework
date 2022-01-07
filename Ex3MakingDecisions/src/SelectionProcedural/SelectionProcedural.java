@@ -145,7 +145,9 @@ public class SelectionProcedural {
 		System.out.print("Winner(s): ");
 		
 		for (int i = 0; i < winners.length; i++) {
-			System.out.print(winners[i].name + " ");
+			if (winners[i] != null) {
+				System.out.print(winners[i].name + " ");
+			}
 		}
 		
 	}
