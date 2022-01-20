@@ -38,10 +38,14 @@ public class Solution {
 			int secondMonth = Integer.parseInt(secondValues[1]);
 			int thirdMonth = Integer.parseInt(thirdValues[1]);
 			
-			if (firstMonth == secondMonth && firstMonth == thirdMonth) {
-				if (A[i] < 0 && A[i+1] < 0 && A[i+2] < 0 && (A[i] + A[i+1] + A[i+2]) <= -100) {
-					paymentMountlyTotal = paymentMountlyTotal + 5;
-				}
+			if (firstMonth == secondMonth && firstMonth == thirdMonth 
+					&& A[i] < 0 
+					&& A[i+1] < 0 
+					&& A[i+2] < 0 
+					&& (A[i] + A[i+1] + A[i+2]) <= -100) {
+				
+				paymentMountlyTotal = paymentMountlyTotal + 5;
+				
 			}
 		}
 		
