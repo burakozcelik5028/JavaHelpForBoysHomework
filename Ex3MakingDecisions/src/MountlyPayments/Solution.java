@@ -46,11 +46,7 @@ public class Solution {
 			String[] secondValues = second.split("-");
 			String[] thirdValues = third.split("-");
 			
-			int firstMonth = Integer.parseInt(firstValues[1]);
-			int secondMonth = Integer.parseInt(secondValues[1]);
-			int thirdMonth = Integer.parseInt(thirdValues[1]);
-			
-			if (firstMonth == secondMonth && firstMonth == thirdMonth 
+			if (firstValues[1].equals(secondValues[1]) && firstValues[1].equals(thirdValues[1] )
 					&& A[i] < 0 
 					&& A[i+1] < 0 
 					&& A[i+2] < 0 
