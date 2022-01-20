@@ -5,17 +5,29 @@ public class Solution {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] A = {100, 100, 100, -10};
-		String[] D = {"2020-12-13", "2020-12-13", "2020-12-22", "2020-12-29"};
+		String[] D = {"2020-12-31", "2020-12-22", "2020-12-03", "2020-12-29"};
 
 		int[] B = {180, -50, -25, -25};
-		String[] E = {"2020-01-01", "2020-01-01", "2020-01-01", "2020-01-01"};
+		String[] E = {"2020-01-01", "2020-01-01", "2020-01-01", "2020-01-31"};
+
+		int[] K = {1, -1, 0, -105, 1};
+		String[] L = {"2020-12-31", "2020-04-04", "2020-04-04", "2020-04-14", "2020-07-12"};
+
+		int[] M = {100, 100, -10, -20, -30};
+		String[] N = {"2020-01-01", "2020-02-01", "2020-02-11", "2020-02-05", "2020-02-08"};
+
 		
 		int c = solution(A, D);
 		System.out.println(c);
-		
 
 		int x = solution(B, E);
 		System.out.println(x);
+
+		int y = solution(K, L);
+		System.out.println(y);
+
+		int z = solution(M, N);
+		System.out.println(z);
 	}
 	
 	public static int solution(int[] A, String[] D) {
