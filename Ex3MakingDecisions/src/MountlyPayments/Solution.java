@@ -5,10 +5,10 @@ public class Solution {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] A = {100, 100, 100, -10};
-		String[] D = {"2020-12-13", "2020-12-22", "2020-12-29"};
+		String[] D = {"2020-12-13", "2020-12-13", "2020-12-22", "2020-12-29"};
 
 		int[] B = {180, -50, -25, -25};
-		String[] E = {"2020-01-13", "2020-01-22", "2020-01-29"};
+		String[] E = {"2020-01-01", "2020-01-01", "2020-01-01", "2020-01-01"};
 		
 		int c = solution(A, D);
 		System.out.println(c);
