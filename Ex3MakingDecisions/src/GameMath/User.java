@@ -3,7 +3,8 @@ package GameMath;
 import java.util.Scanner;
 
 public class User implements UserInterface{	
-	//User class is instance of Object class. Polymorphism
+	//level 2 Polymorphism: User class is instance of Object class. 
+	//level 2 using interfaces
 	
 		private String userName;
 		private String userTitle;
@@ -30,16 +31,20 @@ public class User implements UserInterface{
 				this.userLevel = this.userPoint/5+1;
 				System.out.println("Congrats!!! " + this.userTitle +" You are on new Level!!! Level-" + this.userLevel);
 			}
+			
 			System.out.println("Your final points: " + this.userPoint);
+			
 			if(this.userPoint == 20) {
 				System.out.println("You Succesfully Complete The Game!");
 			}
+			
+			//Level 5 I am adding a special rule to the game with this part!!!
 			if(this.userPoint < 20 && this.userPoint > 9) {
 				System.out.print("You level higher than Level-2. Do you wanna change your Title? Yes or No:");
-				String answerr = sc.nextLine();
+				String answerr = sc.nextLine(); // Level 1 get input
 				if(answerr.toLowerCase().equals("yes")) {
 					System.out.print("Please enter your new title: ");
-					String newTitle = sc.nextLine();
+					String newTitle = sc.nextLine(); // Level 1 get input
 					this.changeTitle(newTitle);
 				} 
 			}

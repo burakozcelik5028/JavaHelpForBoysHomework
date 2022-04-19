@@ -2,10 +2,11 @@ package GameMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-	public class GameLevel2 extends Game{ 	//inheritance from Game class
-											//polymorphism: GameLevel2 is an instance of Game class and is an instance of Object class at the same time
+	public class GameLevel2 extends Game{ 	//level 2 inheritance from Game class
+											//level 2 polymorphism: GameLevel2 is an instance of Game class and is an instance of Object class at the same time
 		public GameLevel2(ArrayList<Integer> arrList, User user) {
 			super(arrList, user); //inheritance
 		}
@@ -20,14 +21,21 @@ import java.util.Scanner;
 			
 			if(super.getUser().getUserLevel() == 2) {
 				System.out.print("What is the answer: " + arrList.get(1) + " - " + arrList.get(0) +" = ");
-				int response = sc.nextInt(); 
-				if (response == arrList.get(1) - arrList.get(0)) {
-					user.gainPoint();
-					return true;
-				} else {
-					user.lostPoint();
-					return false;
+				
+				//level 3 exception handling:
+				try {
+					int response = sc.nextInt(); // Level 1 get input
+					if (response == arrList.get(1) - arrList.get(0)) {
+						user.gainPoint();
+						return true;
+					} else {
+						user.lostPoint();
+						return false;
+					}
+				} catch (InputMismatchException e) {
+					System.out.println("Please enter integer values!");
 				}
+				
 			}
 			return false;
 		}
