@@ -3,7 +3,7 @@ package GameMath;
 import java.util.ArrayList;
 
 public class Game {
-	//level 2 Polymorphism: Game class is instance of Object class.
+	//level 2!! from instructions!!! Polymorphism: Game class is instance of Object class.
 		
 	ArrayList<Integer> arrList;  //Level 3 using ArrayList
 	User user;

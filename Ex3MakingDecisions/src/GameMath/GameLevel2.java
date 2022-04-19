@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-	public class GameLevel2 extends Game{ 	//level 2 inheritance from Game class
-											//level 2 polymorphism: GameLevel2 is an instance of Game class and is an instance of Object class at the same time
+	public class GameLevel2 extends Game{ 	//level 2!! from instructions!!! inheritance from Game class
+											//level 2!! from instructions!!! polymorphism: GameLevel2 is an instance of Game class and is an instance of Object class at the same time
 		public GameLevel2(ArrayList<Integer> arrList, User user) {
 			super(arrList, user); //inheritance
 		}
@@ -22,7 +22,7 @@ import java.util.Scanner;
 			if(super.getUser().getUserLevel() == 2) {
 				System.out.print("What is the answer: " + arrList.get(1) + " - " + arrList.get(0) +" = ");
 				
-				//level 3 exception handling:
+				//level 3!! from instructions!!! exception handling:
 				try {
 					int response = sc.nextInt(); // Level 1 get input
 					if (response == arrList.get(1) - arrList.get(0)) {

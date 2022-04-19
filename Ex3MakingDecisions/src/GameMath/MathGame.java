@@ -12,7 +12,7 @@ public class MathGame {
 		System.out.println("Be ready for basic MATH GAME!");
 		
 		System.out.print("Enter an username: ");
-	    String userName = sc.nextLine();  // Level 1 get input
+	    String userName = sc.nextLine();  // Level 1!! from instructions!!! get input
 	    
 	    User newUser = new User(userName);
 	    newUser.setUserName(userName);
@@ -21,7 +21,7 @@ public class MathGame {
 	    System.out.println("Your point is: " + newUser.getUserPoint());
 	    System.out.println("Your level is: " + newUser.getUserLevel());
 	    System.out.println("Your title is: " + newUser.getUserTitle());
-	    System.out.println("Don't worry! you can change your title after you will be Level-3!"); //Level 5 I am adding a special rule to the game with this part!!!
+	    System.out.println("Don't worry! you can change your title after you will be Level-3!"); //EXTRA!! I am adding a special rule to the game with this part!!!
 	    System.out.println("Every 5 Point you win, every Level you step!!!");
 	    
 	    for (; newUser.getUserLevel() < 5;) {
