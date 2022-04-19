@@ -12,8 +12,8 @@ public class biggestOne {
 		list.add("one");
 		list.add("dsd");
 		list.add(3);
-		for (String s: list)
-			System.out.print(s);
+		//for (String s: list)
+		//	System.out.print(s);
 		// TODO Auto-generated method stub
 		int a = solution(553);
 		System.out.println(a);
