@@ -7,10 +7,18 @@ public class Main {
 
     public static void main(String[] args) {
     	
-        Teacher metin = new Teacher(11350, "Muhammet Metin Molak");
-        Teacher erdem = new Teacher(11250, "Erdem Bestas");
-        Teacher taha = new Teacher(10900, "Mustafa Taha Kabar");
+        Teacher metin = new Teacher();
+        metin.setName("Muhammet Metin Molak");
+        metin.setSalary(11350);
         
+        Teacher erdem = new Teacher();
+        erdem.setName("Erdem Bestas");
+        erdem.setSalary(11250);
+        
+        Teacher taha = new Teacher();
+        taha.setName("Mustafa Taha Kabar");
+        taha.setSalary(10900);
+                
         List<Teacher> teacherList = new ArrayList<>();
         teacherList.add(metin);
         teacherList.add(erdem);

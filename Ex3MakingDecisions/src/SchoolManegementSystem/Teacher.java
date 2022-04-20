@@ -9,9 +9,7 @@ public class Teacher extends User {
     private int salary;
     private int salaryEarned;
 
-    public Teacher(int salary, String name){
-        this.salary=salary;
-        super.name= name;
+    public Teacher(){
         this.salaryEarned = 0;
     }
 
