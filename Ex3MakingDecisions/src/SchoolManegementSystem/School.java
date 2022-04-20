@@ -37,8 +37,10 @@ public class School {
         students.add(student);
     }
 
-    public void showTotalGain() {
+    public String showTotalGain() {
+    	String output = "Marmara University earned : $" + calculatorHelper.calculateGain(students);
         System.out.println("Marmara University earned : $" + calculatorHelper.calculateGain(students));
+        return output;
 
     }
 }
