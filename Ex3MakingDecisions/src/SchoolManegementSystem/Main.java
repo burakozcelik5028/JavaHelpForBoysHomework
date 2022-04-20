@@ -61,7 +61,7 @@ public class Main {
     		System.out.println("Which operation do you want to do next?");
     		System.out.println("1- Create new teacher.");
     		System.out.println("2- Give salary to teacher " + newTeacher.getName());
-    		System.out.println("3- Create new student. ");
+    		System.out.println("3- Create new teacher. ");
     		System.out.print("Pleae type number of step you want to continue(if your input is different than given options, you will continue from step 3): ");
     		try {
     			int continueNumber = sc.nextInt();
@@ -79,7 +79,6 @@ public class Main {
 			}
     		System.out.println("");
     	}
-    	sc.close();
     	return teacherList;
     	
     }
@@ -95,8 +94,7 @@ public class Main {
     		System.out.println();
     		System.out.print("Please type a name to create new student: ");
     		String name = sc.nextLine();
-    		Student newStudent = new Student();
-    		
+    		    		
     		System.out.println("Please type grade of student " + name +": ");
     		float grade = 0;
     		try {
@@ -119,6 +117,7 @@ public class Main {
 				sc.nextLine();
 			}
     		
+    		Student newStudent = new Student();
     		newStudent.setName(name);
     		newStudent.setFeesTotal(totalFee);
     		newStudent.setGrade(grade);
@@ -158,7 +157,6 @@ public class Main {
     		System.out.println("");
     	}
     	
-    	sc.close();
 		return studentList;
     	
     }

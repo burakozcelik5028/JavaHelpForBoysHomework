@@ -31,6 +31,6 @@ public class Teacher extends User {
 
     @Override
     public String toString() {
-        return "TEACHER'S NAME: "+id+". "+name+" || TOTAL SALARY EARNED: $"+ salaryEarned;
+        return "TEACHER'S NAME With The ID "+ getId() +": "+name+" || TOTAL SALARY EARNED: $"+ salaryEarned;
     }
 }
