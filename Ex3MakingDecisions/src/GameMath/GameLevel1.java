@@ -14,10 +14,11 @@ public class GameLevel1 extends Game{ 	//level 2!! from instructions!!! inherita
 	public boolean calculate() {
 		Scanner sc= new Scanner(System.in);
 		
-		//to test program fastly use the following line. it will show the answer:
-		//System.out.println(arrList.get(0) + arrList.get(1));
-		
 		if(super.getUser().getUserLevel() == 1) {
+			
+			//to test program fastly use the following line. it will show the answer:
+			//System.out.println(arrList.get(0) + arrList.get(1));
+			
 			System.out.print("What is the answer: " + arrList.get(1) + " + " + arrList.get(0) +" = ");
 			
 			//level 3!! from instructions!!! exception handling:
