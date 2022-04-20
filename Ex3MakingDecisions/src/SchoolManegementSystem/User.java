@@ -27,7 +27,6 @@ abstract class User {
 
     public void print() {
         System.out.println("Kullanıcı Detayı >>>>>> Kullanıcı Adı: " + this.name);
-        System.out.println();
     }
 
     public void print(String message) {

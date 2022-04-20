@@ -65,18 +65,22 @@ public class Main {
 
         System.out.println("-------------------------------------------------------------");
         sertan.print();
-
         System.out.println(sertan);
+        System.out.println();
 
         oguz.print();
         System.out.println(oguz);
+        System.out.println();
 
         cihan.print();
         System.out.println(cihan);
+        System.out.println();
 
         System.out.println("--------------------------------------------------------------");
         System.out.println(metin);
         System.out.println(erdem);
         System.out.println(taha);
+        
+        
     }
 }

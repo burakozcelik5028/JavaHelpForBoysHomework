@@ -6,25 +6,26 @@ package SchoolManegementSystem;
  */
 public class Teacher extends User {
 
-    private int salary;
-    private int salaryEarned;
+    private double salary;
+    private double salaryEarned;
 
     public Teacher(){
         this.salaryEarned = 0;
     }
 
-    public int getSalary(){
+    public double getSalary(){
         return salary;
     };
+    
     public  int getId(){
         return id;
     };
 
-    public void setSalary(int salary){
+    public void setSalary(double salary){
         this.salary= salary;
     }
 
-    public void receiveSalary(int salary){
+    public void receiveSalary(double salary){
         salaryEarned += salary;
     }
 
