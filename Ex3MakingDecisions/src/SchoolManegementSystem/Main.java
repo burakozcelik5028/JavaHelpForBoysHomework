@@ -47,6 +47,7 @@ public class Main {
         School marmaraUniversity = new School(teacherList, studentList);
 
         oguz.calculateTuition(300);
+        oguz.calculateTuition(20);
         
         cihan.calculateTuition(80);
         cihan.print("Ödeme Başarılı!");

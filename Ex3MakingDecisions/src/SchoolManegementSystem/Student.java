@@ -5,10 +5,23 @@ package SchoolManegementSystem;
  * tution, name, id,tutionPaid, grade
  */
 public class Student extends User implements TuitionCalculator {
-	
+
+	private int feesTotal;
     private float grade;
     private int paidTotalAmount;
-    private double feesTotal;
+	private int remainigAmount;
+    
+    public void setPaidTotalAmount(int payment) {
+		this.paidTotalAmount = paidTotalAmount + payment;
+	}
+    
+    public int getRemainigAmount() {
+		return remainigAmount;
+	}
+
+	public void setRemainigAmount() {
+		this.remainigAmount = feesTotal-paidTotalAmount;
+	}
 
     public Student() {
     }
@@ -17,7 +30,7 @@ public class Student extends User implements TuitionCalculator {
         this.grade = grade;
     }
     
-    public void setFeesTotal(double feesTotal) {
+    public void setFeesTotal(int feesTotal) {
         this.feesTotal = feesTotal;
     }
 
@@ -28,7 +41,14 @@ public class Student extends User implements TuitionCalculator {
         }
 
         if (isProperPayment(paidAmount)) {
-            return paidTotalAmount += paidAmount;
+        	System.out.println("üüüüüüüüüüüüüüüüüüüüüüüüüüüü");
+        	setPaidTotalAmount(paidAmount);
+        	setRemainigAmount();
+        	System.out.println("feeTotal " + feesTotal);
+        	System.out.println("paidAmount " + paidAmount);
+        	System.out.println("paidTotalAmount " + paidTotalAmount);
+        	System.out.println("remainingamount " + remainigAmount);
+            return paidTotalAmount;
         }
         return paidTotalAmount;
     }
@@ -50,17 +70,13 @@ public class Student extends User implements TuitionCalculator {
         return paidTotalAmount;
     }
 
-    public double getFeesTotal() {
+    public int getFeesTotal() {
         return feesTotal;
-    }
-
-    public double getRemainingFees() {
-        return feesTotal - paidTotalAmount;
     }
 
     @Override
     public String toString() {
-        return "Student's NAME: " + id + ". " + name + " || TOTAL FEES PAID: $" + (feesTotal - paidTotalAmount) + " || REMAINS: $" + getRemainingFees();
+        return "Student's NAME: " + id + ". " + name + " || TOTAL FEES PAID: $" + getPaidTotalAmount() + " || REMAINS: $" + getRemainigAmount();
     }
 
 }
