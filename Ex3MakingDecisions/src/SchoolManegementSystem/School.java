@@ -6,15 +6,12 @@ import java.util.List;
 public class School {
 
     private List<Teacher> teachers;
-    private List<Student> students;
+	private List<Student> students;
 
     private CalculatorHelper calculatorHelper = new CalculatorHelper();
 
-    public School(List<Teacher> teachers, List<Student> students) {
-        this.teachers = teachers;
-        this.students = students;
+    public School() {
     }
-
 
     public List<Teacher> getTeachers() {
         return teachers;
@@ -23,6 +20,14 @@ public class School {
     public void addTeacher(Teacher teacher) {
         teachers.add(teacher);
     }
+    
+    public void setTeachers(List<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
 
     public List<Student> getStudents() {
         return students;
@@ -33,7 +38,7 @@ public class School {
     }
 
     public void showTotalGain() {
-        System.out.println("Marmara University earned : ₺ " + calculatorHelper.calculateGain(students));
+        System.out.println("Marmara University earned : $" + calculatorHelper.calculateGain(students));
 
     }
 }
