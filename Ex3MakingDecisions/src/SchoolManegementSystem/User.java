@@ -3,6 +3,7 @@ package SchoolManegementSystem;
 import java.util.concurrent.atomic.AtomicInteger;
 
 abstract class User {
+	
     protected String name;
     protected int id;
     
@@ -22,10 +23,6 @@ abstract class User {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void print() {

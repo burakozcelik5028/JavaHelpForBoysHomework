@@ -10,10 +10,15 @@ public class Student extends User implements TuitionCalculator {
     private int paidTotalAmount;
     private double feesTotal;
 
-    public Student(){}
+    public Student() {
+    }
 
     public void setGrade(float grade) {
         this.grade = grade;
+    }
+    
+    public void setFeesTotal(double feesTotal) {
+        this.feesTotal = feesTotal;
     }
 
     @Override

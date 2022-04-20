@@ -6,31 +6,47 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Teacher metin = new Teacher(1, 11350, "Muhammet Metin Molak");
-        Teacher erdem = new Teacher(2, 11250, "Erdem Bestas");
-        Teacher taha = new Teacher(3, 10900, "Mustafa Taha Kabar");
+    	
+        Teacher metin = new Teacher(11350, "Muhammet Metin Molak");
+        Teacher erdem = new Teacher(11250, "Erdem Bestas");
+        Teacher taha = new Teacher(10900, "Mustafa Taha Kabar");
+        
         List<Teacher> teacherList = new ArrayList<>();
         teacherList.add(metin);
         teacherList.add(erdem);
         teacherList.add(taha);
 
-        Student sertan = new Student(34, "Sertan Aygun", 1000, 67);
-        Student oguz = new Student(41, "Oguzhan Karatas", 800, 22);
-        Student cihan = new Student(50, "Cihan Turan", 600, 32);
+        Student sertan = new Student();
+        sertan.setName("Sertan Aygun");
+        sertan.setGrade(67);
+        sertan.setFeesTotal(1000);
+        
+        Student oguz = new Student();
+        oguz.setName("Oguzhan Karatas");
+        oguz.setGrade(22);
+        oguz.setFeesTotal(800);
+        
+        Student cihan = new Student();
+        cihan.setName("Cihan Turan");
+        cihan.setGrade(32);
+        cihan.setFeesTotal(600);
+        
         List<Student> studentList = new ArrayList<>();
         studentList.add(sertan);
         studentList.add(oguz);
         studentList.add(cihan);
 
-        School MarmaraUniversity = new School(teacherList, studentList);
+        School marmaraUniversity = new School(teacherList, studentList);
 
         oguz.calculateTuition(300);
+        
         cihan.calculateTuition(80);
         cihan.print("Ödeme Başarılı!");
+        
         sertan.calculateTuition(20);
         sertan.print("Ödemeniz Gerçekleştirildi. ");
 
-        MarmaraUniversity.showTotalGain();
+        marmaraUniversity.showTotalGain();
 
 
         metin.receiveSalary(metin.getSalary());
