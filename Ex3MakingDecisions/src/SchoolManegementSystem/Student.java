@@ -41,13 +41,9 @@ public class Student extends User implements TuitionCalculator {
         }
 
         if (isProperPayment(paidAmount)) {
-        	System.out.println("üüüüüüüüüüüüüüüüüüüüüüüüüüüü");
         	setPaidTotalAmount(paidAmount);
         	setRemainigAmount();
-        	System.out.println("feeTotal " + feesTotal);
-        	System.out.println("paidAmount " + paidAmount);
-        	System.out.println("paidTotalAmount " + paidTotalAmount);
-        	System.out.println("remainingamount " + remainigAmount);
+        	System.out.println("Ödeme Başarılı!");
             return paidTotalAmount;
         }
         return paidTotalAmount;
